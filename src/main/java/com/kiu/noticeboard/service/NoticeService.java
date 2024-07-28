@@ -42,7 +42,7 @@ public class NoticeService {
 
     @Transactional
     public Notice update(Long id, Notice newNotice){
-        Notice oldNotice= repository.findById(id).orElseThrow(()->throw new NoticeNotFoundException("Notice not found with ID "+id));
+        Notice oldNotice= repository.findById(id).orElseThrow(()-> new NoticeNotFoundException("Notice not found with ID "+id));
             oldNotice.setAdmin(newNotice.getAdmin());
             oldNotice.setRuleName(newNotice.getRuleName());
          return  repository.save(oldNotice);
