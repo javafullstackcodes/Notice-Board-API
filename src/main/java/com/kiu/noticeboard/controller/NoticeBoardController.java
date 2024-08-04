@@ -14,11 +14,12 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/api/v1/notices")
 @RequiredArgsConstructor
+@CrossOrigin("http://localhost:3000/")
 public class NoticeBoardController {
 
     private final NoticeService service;
 
-    @PostMapping
+    @PostMapping("/create")
     public ResponseEntity<Notice> createNotice(@Valid @RequestBody Notice notice){
         return new ResponseEntity<>(service.createNotice(notice), HttpStatus.CREATED);
     }
